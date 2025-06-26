@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Contacto</title>
+    </head>
+    <body>
+
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <main class="container mt-5">
+            <h2>Contáctanos</h2>
+
+            <div th:if="${mensajeExito}" class="alert alert-success" role="alert" th:text="${mensajeExito}"></div>
+
+            <form th:action="@{/contacto/enviar}" th:object="${sugerencia}" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico:</label>
+                    <input type="email" id="email" th:field="*{email}" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje:</label>
+                    <textarea id="mensaje" th:field="*{mensaje}" class="form-control" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </main>
+
+        <footer th:replace="~{layout/plantilla :: footer}"></footer>
+
+    </body>
+</html>

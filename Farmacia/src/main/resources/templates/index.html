@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Farmacia La Salud</title>
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <main class="container text-center mt-5">
+            <h2 th:text="${mensaje}">Bienvenido a Farmacia La Salud</h2>
+
+            <p class="lead mt-3">
+                Tu bienestar es nuestra prioridad. Encuentra medicamentos, atención y confianza en un solo lugar.
+            </p>
+
+            <!-- Imagen destacada -->
+            <div class="my-4">
+                <video class="d-block w-100" autoplay muted loop>
+                    <source src="videos/Farmacia.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                </video>
+            </div>
+
+
+            <!-- Botones de acción -->
+            <div class="d-flex justify-content-center gap-3">
+                <a th:href="@{/medicamentos}" class="btn btn-success">Ver Medicamentos</a>
+                <a th:href="@{/contacto}" class="btn btn-outline-primary btn-lg">Contáctanos</a>
+            </div>
+        </main>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+
     </body>
 </html>

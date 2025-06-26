@@ -1,7 +1,13 @@
 package com.farmacia.service.impl;
 
-import com.farmacia.dao.FarmaciaDao.*;
-import com.farmacia.domain.FarmaciaEntities.*;
+import com.farmacia.dao.MedicamentoDao;
+import com.farmacia.dao.CategoriaDao;
+import com.farmacia.dao.SugerenciaDao;
+
+import com.farmacia.domain.Farmacia.Medicamento;
+import com.farmacia.domain.Farmacia.Categoria;
+import com.farmacia.domain.Farmacia.Sugerencia;
+
 import com.farmacia.service.FarmaciaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +30,7 @@ public class FarmaciaServiceImpl implements FarmaciaService {
     // Medicamentos
     @Override
     public List<Medicamento> getMedicamentos(boolean activo) {
-        // Si quieres filtrar por activo, implementa aquí. 
-        // Por ahora devuelve todos (sin filtro) porque Medicamento no tiene campo activo en el ejemplo.
-        return medicamentoDao.findAll();
+        return medicamentoDao.findAll(); // sin filtro por "activo"
     }
 
     @Override
@@ -47,7 +51,6 @@ public class FarmaciaServiceImpl implements FarmaciaService {
     // Categorías
     @Override
     public List<Categoria> getCategorias(boolean activo) {
-        // Similar, devuelve todos (no filtro activo en ejemplo)
         return categoriaDao.findAll();
     }
 

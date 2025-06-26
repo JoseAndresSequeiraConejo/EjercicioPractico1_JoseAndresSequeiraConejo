@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Lista de Medicamentos</title>
+    </head>
+    <body>
+
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <main class="container mt-5">
+            <h2 class="text-center mb-4">Lista de Medicamentos</h2>
+
+            <div class="text-end mb-3">
+                <a th:href="@{/medicamento/nuevo}" class="btn btn-primary">Agregar Medicamento</a>
+            </div>
+
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="med : ${medicamentos}">
+                        <td th:text="${med.nombre}">Nombre</td>
+                        <td th:text="${med.descripcion}">Descripción</td>
+                        <td th:text="${med.precio}">0.0</td>
+                        <td th:text="${med.stock}">0</td>
+                        <td th:text="${med.categoria.nombre}">Categoría</td>
+                        <td class="text-center">
+                            <a th:href="@{/medicamento/modificar/{id}(id=${med.id})}" class="btn btn-sm btn-warning me-1">Editar</a>
+                            <a th:href="@{/medicamento/eliminar/{id}(id=${med.id})}"
+                               onclick="return confirm('¿Seguro que deseas eliminar este medicamento?')"
+                               class="btn btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+
+    </body>
+</html>

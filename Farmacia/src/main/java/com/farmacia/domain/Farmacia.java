@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class FarmaciaEntities {
+public class Farmacia {
 
     @Data
     @Entity
